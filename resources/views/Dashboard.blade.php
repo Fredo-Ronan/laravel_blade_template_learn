@@ -92,6 +92,15 @@
                                 <p> Home</p>
                             </a>
                         </li>
+
+                        <!-- Start Code UGD -->
+                        <li class="nav-item">
+                            <a href="{{ url('presensi') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>Presensi Member</p>
+                            </a>
+                        </li>
+                        <!-- End Code UGD -->
                     </ul>
                 </nav>
             </div>
