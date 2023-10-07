@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initialscale=1">
-    <title>GD5_B_11446</title>
+    <title>UGD5_B_11446</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
@@ -29,7 +29,7 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item d-flex align-items-center">
-                    <button class="btn btn-sm btn-danger">
+                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logoutBackdrop">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </button>
 
@@ -108,6 +108,10 @@
 
         <div class="content-wrapper">
             @yield('content')
+
+            <!-- Start Code UGD Presensi -->
+            @yield('presensi-content')
+            <!-- End Code UGD Presensi -->
         </div>
 
         <footer class="main-footer">
@@ -119,6 +123,30 @@
         </footer>
     </div>
 
+    <!-- Start Code UGD toast dan modal detil kelas -->
+    @yield('toast')
+    @yield('modal-detil-kelas')
+    <!-- End Code UGD toast dan modal detil kelas -->
+    
+    <!-- Start Code UGD Modal Logout -->
+    <div class="modal fade" id="logoutBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5" id="logoutBackdropLabel">Apakah Ingin Logout?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">
+                        <a href="{{ url('login') }}" class="text-decoration-none text-white">Logout</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Code UGD Modal Logout -->
+
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 5.3 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -126,5 +154,9 @@
     crossorigin="anonymous"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
+
+    <!-- Start Code UGD Script Toast -->
+    @yield('toast-script')
+    <!-- End Code UGD Script Toast -->
 </body>
 </html>
